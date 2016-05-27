@@ -1,0 +1,30 @@
+version: '2'
+services:
+  nginx:
+    build: ./nginx
+    ports:
+        - "80:80"
+    links:
+        - fpm
+    volumes:
+        - "./html:/var/www/html"
+        - "./log/nginx:/var/log/nginx"
+    restart: always
+  fpm:
+    build: ./phpfpm
+    ports:
+        - "9000:9000"
+    links:
+        - mariadb
+    volumes:
+        - "./html:/var/www/html"
+        - "./log/php:/var/log/php"
+    restart: always
+  mariadb:
+    build: ./mariadb
+    volumes:
+        - "./var-lib-mysql:/var/lib/mysql"
+    environment:
+        MARIADB_USER: root
+        MARIADB_PASS: root
+    restart: always
