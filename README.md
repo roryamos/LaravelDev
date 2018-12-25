@@ -21,11 +21,11 @@ pip install docker-compose
 yum upgrade python*
 ```
 #### 接下來只需要四個步驟
-Step1. git clone https://github.com/roryamos/LaravelDev.git
-Step2. cd LaravelDev
-Step3. docker pull composer
-Step4. ./composer.sh create-project laravel/laravel html/laravel
-Step5. vi html/laravel/routes/web.php
+Step1. git clone https://github.com/roryamos/LaravelDev.git  
+Step2. cd LaravelDev  
+Step3. docker pull composer  
+Step4. ./composer.sh create-project laravel/laravel html/laravel  
+Step5. vi html/laravel/routes/web.php  
 ```
 Route::get('/', function () {
     //return view('welcome');
